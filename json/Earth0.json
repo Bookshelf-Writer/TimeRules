@@ -1,0 +1,66 @@
+{
+  "name": "Earth0",
+  "description": "Time-Rules Earth-0",
+  "inf": {
+    "ver": "0.7.0",
+    "creator": "SUNsung"
+  },
+
+  "format": {
+    "date": "${Y}/${ms:2}/${ds:2}",
+    "time": "${hs:2}:${is:2}",
+    "full": "${Y}/${ms:2}/${ds:2} ${hs:2}:${is:2} ${Zm60::2}"
+  },
+  "year": {
+    "min": -999999999999999999,
+    "max": 999999999999999999
+  },
+  "maxHour": 23,
+  "maxMin": 59,
+
+  "month": [
+    {"fullName": "January", "shortName": "JAN", "days": 31},
+    {"fullName": "February", "shortName": "FEB", "days": 28},
+    {"fullName": "March", "shortName": "MAR", "days": 31},
+    {"fullName": "April", "shortName": "APR", "days": 30},
+    {"fullName": "May", "shortName": "MAY", "days": 31},
+    {"fullName": "June", "shortName": "JUN", "days": 30},
+    {"fullName": "July", "shortName": "JUL", "days": 31},
+    {"fullName": "August", "shortName": "AUG", "days": 31},
+    {"fullName": "September", "shortName": "SEP", "days": 30},
+    {"fullName": "October", "shortName": "OCT", "days": 31},
+    {"fullName": "November", "shortName": "NOV", "days": 30},
+    {"fullName": "December", "shortName": "DEC", "days": 31}
+  ],
+
+  "timezones": {
+    "UTC": 0,
+    "Etc/GMT": 0,
+    "Etc/GMT+1": -60,
+    "Etc/GMT+2": -120,
+    "Etc/GMT+3": -180,
+    "Etc/GMT+4": -240,
+    "Etc/GMT+5": -300,
+    "Etc/GMT+6": -360,
+    "Etc/GMT+7": -420,
+    "Etc/GMT+8": -480,
+    "Etc/GMT+9": -540,
+    "Etc/GMT+10": -600,
+    "Etc/GMT+11": -660,
+    "Etc/GMT+12": -720,
+    "Etc/GMT-1": 60,
+    "Etc/GMT-2": 120,
+    "Etc/GMT-3": 180,
+    "Etc/GMT-4": 240,
+    "Etc/GMT-5": 300,
+    "Etc/GMT-6": 360,
+    "Etc/GMT-7": 420,
+    "Etc/GMT-8": 480,
+    "Etc/GMT-9": 540,
+    "Etc/GMT-10": 600,
+    "Etc/GMT-11": 660,
+    "Etc/GMT-12": 720,
+    "Etc/GMT-13": 780,
+    "Etc/GMT-14": 840
+  }
+}

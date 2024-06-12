@@ -1,0 +1,97 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - '**.json'
+      - '**.tvr'
+      - '**.gitignore'
+      - 'build-name'
+      - 'build-ver'
+      - 'version'
+
+jobs:
+
+#**********************************************************************************************************************#
+  test-module:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+
+    steps:
+    - name: Action init
+      uses: actions/checkout@v4
+
+########################################################################################################################
+
+    - name: Cache [ubuntu] init
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/go-build
+          ~/go/pkg/mod
+          go.sum
+          go.sum
+        key: ${{ runner.os }}-go-local
+        restore-keys: ${{ runner.os }}-go-
+
+    - name: Cache [macos] init
+      if: ${{ matrix.os == 'macos-latest' }}
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/Library/Caches/go-build
+          ~/go/pkg/mod
+          go.sum
+          go.sum
+        key: ${{ runner.os }}-go-local
+        restore-keys: ${{ runner.os }}-go-
+        enableCrossOsArchive: true
+
+    - name: Cache [windows] init
+      if: ${{ matrix.os == 'windows-latest' }}
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~\AppData\Local\go-build
+          ~\go\pkg\mod
+          go.sum
+          go.sum
+        key: ${{ runner.os }}-go-local
+        restore-keys: ${{ runner.os }}-go-
+        enableCrossOsArchive: true
+
+########################################################################################################################
+
+    - name: Goland init
+      uses: actions/setup-go@v5
+      with:
+        go-version-file: 'go.mod'
+
+    - name: go.sum [macos, ubuntu] init
+      if: ${{ matrix.os == 'macos-latest' || matrix.os == 'ubuntu-latest' }}
+      run: |
+        if [ ! -f "go.sum" ]; then
+          go mod tidy
+        fi
+      working-directory: ${{ github.workspace }}
+
+    - name: go.sum [windows] init
+      if: ${{ matrix.os == 'windows-latest' }}
+      run: |
+        if (-not (Test-Path "go.sum")) {
+          go mod tidy
+        }
+      working-directory: ${{ github.workspace }}
+
+########################################################################################################################
+
+    - name: Start Test
+      run: go test
