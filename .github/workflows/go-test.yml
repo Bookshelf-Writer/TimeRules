@@ -9,9 +9,9 @@ on:
       - '**.json'
       - '**.tvr'
       - '**.gitignore'
-      - 'build-name'
-      - 'build-ver'
-      - 'version'
+      - '*.txt'
+      - '*.sh'
+      - 'const.go'
 
 jobs:
 

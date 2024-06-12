@@ -3,10 +3,10 @@ package TimeRules
 const (
 	GlobalName       string = "TimeRules"
 	GlobalDateUpdate string = "06-12-2024"
-	GlobalHash       string = "9295ab84bfe1b50571fae11aefe6e886cde8ba2f"
+	GlobalHash       string = "a70c89fb72bbd7d78b00989110fe4a67fa0cf04f"
 
-	GlobalVersion      string = "v1.0.2"
+	GlobalVersion      string = "v1.0.3"
 	GlobalVersionMajor string = "v1"
 	GlobalVersionMinor uint16 = 0
-	GlobalVersionPatch uint16 = 2
+	GlobalVersionPatch uint16 = 3
 )
