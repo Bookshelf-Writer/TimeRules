@@ -1,5 +1,4 @@
 ![Fork GitHub Release](https://img.shields.io/github/v/release/Bookshelf-Writer/TimeRules)
-![CodeQL](https://github.com/Bookshelf-Writer/TimeRules/actions/workflows/codeql.yml/badge.svg)
 ![Tests](https://github.com/Bookshelf-Writer/TimeRules/actions/workflows/go-test.yml/badge.svg)
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/Bookshelf-Writer/TimeRules)](https://goreportcard.com/report/github.com/Bookshelf-Writer/TimeRules)
