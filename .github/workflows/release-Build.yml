@@ -58,9 +58,12 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          
           new_version=$(./_run/scripts/sys.sh --increment --minor)
+          bash ./_run/scripts/creator_const_Go.sh
           
           git add ./_run/values/ver.txt
+          git add ./const.go
           
           git commit -m "actions [$new_version] "$'\n'"Build: [${{ env.BUILD_VER }}] >> [$new_version]"
           git push origin HEAD:main
