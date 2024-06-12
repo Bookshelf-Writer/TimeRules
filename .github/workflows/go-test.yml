@@ -11,6 +11,7 @@ on:
       - '**.gitignore'
       - '*.txt'
       - '*.sh'
+      - '*.yml'
       - 'const.go'
 
 jobs:
