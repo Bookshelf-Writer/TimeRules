@@ -43,10 +43,10 @@ jobs:
 
       ########################################################################################################################
 
-      - name: Checkout to the [master]
+      - name: Checkout to the [main]
         run: |
-          if git branch -a | grep -qw "origin/master"; then
-            git checkout master
+          if git branch -a | grep -qw "origin/main"; then
+            git checkout main
           else
             echo "No known branch found!"
             exit 1
@@ -63,4 +63,4 @@ jobs:
           git add ./_run/values/ver.txt
           
           git commit -m "actions [$new_version] "$'\n'"Build: [${{ env.BUILD_VER }}] >> [$new_version]"
-          git push origin HEAD:master
+          git push origin HEAD:main
